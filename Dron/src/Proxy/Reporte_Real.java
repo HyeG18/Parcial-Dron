@@ -1,7 +1,4 @@
-
-
 public class Reporte_Real implements Reporte {
-    // Atributos
     private String archivo;
 
     public Reporte_Real() {

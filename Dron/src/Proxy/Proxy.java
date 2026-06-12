@@ -1,10 +1,8 @@
 public class Proxy implements Reporte {
-    // Atributos 
     private String rol;
     private String archivo;
     private Reporte_Real reporte_real;
-
-    // Constructor 
+    
     public Proxy(String rol) {
         this.rol = rol;
         this.archivo = null;
@@ -17,7 +15,6 @@ public class Proxy implements Reporte {
 
     @Override
     public String obtenerReporteSensores() {
-        // Proxy de Caché
         if (this.archivo == null) {
             System.out.println("Caché vacío. Delegando petición al hardware real...");
             this.archivo = reporte_real.obtenerReporteSensores();
@@ -29,7 +26,6 @@ public class Proxy implements Reporte {
 
     @Override
     public void forzarReinicioDron() {
-        // Proxy de Protección
         if (verificarRol()) {
             System.out.println("Seguridad aprobada para rol '" + this.rol + "'. Ejecutando orden...");
             reporte_real.forzarReinicioDron();
